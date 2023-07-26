@@ -1,9 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import useStoreModal from "@/hooks/useStoreModal";
-import { UserButton } from "@clerk/nextjs";
-import Image from "next/image";
 import { useEffect } from "react";
 
 const SetUpPage = () => {
@@ -14,6 +11,6 @@ const SetUpPage = () => {
       onOpen();
     }
   }, [isOpen, onOpen]);
-  return <div>root page</div>;
+  return null
 };
 export default SetUpPage;
