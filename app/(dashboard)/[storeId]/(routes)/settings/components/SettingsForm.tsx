@@ -1,6 +1,7 @@
 "use client";
 
 import AlertModal from "@/components/AlertModal";
+import ApiAlert from "@/components/ui/ApiAlert";
 import Heading from "@/components/ui/Heading";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,6 +24,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import * as z from "zod";
+import UseOrigin from "@/hooks/useOrigin";
 
 interface SettingsFormProps {
   store: Store;
@@ -36,6 +38,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ store }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
+  const origin = UseOrigin()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -123,6 +126,7 @@ const SettingsForm: React.FC<SettingsFormProps> = ({ store }) => {
         </form>
       </Form>
       <Separator />
+      <ApiAlert title="NEXT_PUBLIC_API_URL" description={`${origin}/api/${store.id}`} variant={'public'}/>
     </>
   );
 };
