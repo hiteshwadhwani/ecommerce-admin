@@ -2,8 +2,8 @@ import BillboardClient from "./components/BillboardClient"
 
 const BillboardsPage = () => {
     return (
-        <div className="flex flex-col">
-            <div className="flex-1 mt-4 gap-x-4">
+        <div className="flex-col">
+            <div className="flex-1 p-8 pt-6 space-y-4">
                 <BillboardClient />
             </div>
             
